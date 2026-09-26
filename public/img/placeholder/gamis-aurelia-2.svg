@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3e7dd"/>
+      <stop offset="1" stop-color="#d9b99b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1125" fill="url(#g)"/>
+  <g opacity="0.15">
+    <circle cx="135" cy="956.25" r="198" fill="#ffffff"/>
+    <circle cx="810" cy="135" r="144" fill="#ffffff"/>
+  </g>
+  <text x="50%" y="48%" font-family="Georgia, serif" font-size="50" fill="#3d332b" text-anchor="middle" dominant-baseline="middle">Gamis Aurelia</text>
+  <text x="50%" y="58%" font-family="Arial, sans-serif" font-size="29" fill="#6b5d4f" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">FOTO PRODUK 2</text>
+</svg>

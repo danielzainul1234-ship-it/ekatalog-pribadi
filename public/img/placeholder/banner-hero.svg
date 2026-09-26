@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3e7dd"/>
+      <stop offset="1" stop-color="#d9b99b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <g opacity="0.15">
+    <circle cx="240" cy="765" r="352" fill="#ffffff"/>
+    <circle cx="1440" cy="108" r="256" fill="#ffffff"/>
+  </g>
+  <text x="50%" y="48%" font-family="Georgia, serif" font-size="88" fill="#3d332b" text-anchor="middle" dominant-baseline="middle">Koleksi Terbaru</text>
+  <text x="50%" y="58%" font-family="Arial, sans-serif" font-size="51" fill="#6b5d4f" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">HERO BANNER</text>
+</svg>

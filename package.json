@@ -1,0 +1,16 @@
+{
+  "name": "ekatalog-pribadi",
+  "version": "1.0.0",
+  "description": "Marketplace / online catalog untuk fashion wanita (gamis, dress, hijab) dengan checkout via WhatsApp. Backend Node.js murni (tanpa framework eksternal) + SQLite bawaan Node.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node src/lib/seed.js"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

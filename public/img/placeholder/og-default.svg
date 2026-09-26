@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3e7dd"/>
+      <stop offset="1" stop-color="#d9b99b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g opacity="0.15">
+    <circle cx="180" cy="535.5" r="264" fill="#ffffff"/>
+    <circle cx="1080" cy="75.6" r="192" fill="#ffffff"/>
+  </g>
+  <text x="50%" y="48%" font-family="Georgia, serif" font-size="66" fill="#3d332b" text-anchor="middle" dominant-baseline="middle">Ekatalog Pribadi</text>
+  <text x="50%" y="58%" font-family="Arial, sans-serif" font-size="38" fill="#6b5d4f" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">FASHION MUSLIMAH</text>
+</svg>

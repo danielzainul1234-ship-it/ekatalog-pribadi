@@ -1,0 +1,45 @@
+'use strict';
+// Small hand-crafted inline SVG icons (stroke-based, 24x24 viewbox) — no icon-font/CDN dependency.
+const wrap = (inner, extra = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ${extra}>${inner}</svg>`;
+
+const icons = {
+  search: wrap('<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>'),
+  cart: wrap('<circle cx="9" cy="21" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="21" r="1.4" fill="currentColor" stroke="none"/><path d="M2.5 3h2.4l2.1 11.4a2 2 0 002 1.6h8.1a2 2 0 002-1.6L20.5 7H6"/>'),
+  menu: wrap('<path d="M3 6h18M3 12h18M3 18h18"/>'),
+  close: wrap('<path d="M6 6l12 12M18 6L6 18"/>'),
+  home: wrap('<path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v9.5a1 1 0 001 1H17.5a1 1 0 001-1V10"/>'),
+  grid: wrap('<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>'),
+  heart: wrap('<path d="M12 20.2s-8-4.9-8-11A4.7 4.7 0 0112 6.1 4.7 4.7 0 0120 9.2c0 6.1-8 11-8 11z"/>'),
+  whatsapp: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.2-.6.9-.8 1-.2.2-.3.2-.6.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.1-.5-.1-.2-.6-1.5-.8-2-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.6 1 2.6.7 3.1.6.5-.1 1.6-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.2zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>',
+  plus: wrap('<path d="M12 5v14M5 12h14"/>'),
+  minus: wrap('<path d="M5 12h14"/>'),
+  trash: wrap('<path d="M4 7h16M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2m1 0-.7 12.3a2 2 0 01-2 1.7H9.7a2 2 0 01-2-1.7L7 7"/>'),
+  chevronRight: wrap('<path d="M9 6l6 6-6 6"/>'),
+  chevronDown: wrap('<path d="M6 9l6 6 6-6"/>'),
+  check: wrap('<path d="M5 13l4 4L19 7"/>'),
+  info: wrap('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>'),
+  star: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.5 7.2L12 18l-6.5 3.7 1.5-7.2-5.3-5 7.2-.9z"/></svg>',
+  filter: wrap('<path d="M4 6h16M7 12h10M10 18h4"/>'),
+  eye: wrap('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
+  edit: wrap('<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/>'),
+  copy: wrap('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/>'),
+  box: wrap('<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/>'),
+  clipboard: wrap('<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V2h6v2"/><path d="M9 10h6M9 14h6"/>'),
+  settings: wrap('<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.6-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.6c.6.3 1.4.1 1.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/>'),
+  dashboard: wrap('<rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="12" width="8" height="9" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/>'),
+  logout: wrap('<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/>'),
+  tag: wrap('<path d="M20.6 12.3L12.4 20.5a2 2 0 01-2.8 0l-7-7a2 2 0 010-2.8L10.8 2.5H18a2.6 2.6 0 012.6 2.6z"/><circle cx="14.5" cy="7.5" r="1.3" fill="currentColor" stroke="none"/>'),
+  users: wrap('<circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><path d="M16.5 4.6a3.2 3.2 0 010 6.2"/><path d="M19 14.2a6.5 6.5 0 013 5.8"/>'),
+  clock: wrap('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>'),
+  bag: wrap('<path d="M6 8h12l1 12H5z"/><path d="M9 8a3 3 0 016 0"/>'),
+  chart: wrap('<path d="M4 20V10M12 20V4M20 20v-7"/>'),
+  image: wrap('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5-9 9"/>'),
+  upload: wrap('<path d="M12 16V4M8 8l4-4 4 4"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/>'),
+  warning: wrap('<path d="M12 3l10 18H2z"/><path d="M12 10v4M12 17.5h.01"/>'),
+  package: wrap('<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8M3 8l9 5 9-5"/>'),
+  instagram: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .2 2.4.4.6.2 1 .5 1.5 1 .4.4.7.9 1 1.5.2.4.3 1.2.4 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 2-.4 2.4-.2.6-.5 1-1 1.5-.4.4-.9.7-1.5 1-.4.2-1.2.3-2.4.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.2-2.4-.4-.6-.2-1-.5-1.5-1-.4-.4-.7-.9-1-1.5-.2-.4-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-2 .4-2.4.2-.6.5-1 1-1.5.4-.4.9-.7 1.5-1 .4-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-1.9.3-.5.2-.8.4-1.2.8-.4.4-.6.7-.8 1.2-.1.3-.3.9-.3 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 1.9.2.5.4.8.8 1.2.4.4.7.6 1.2.8.3.1.9.3 1.9.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 1.9-.3.5-.2.8-.4 1.2-.8.4-.4.6-.7.8-1.2.1-.3.3-.9.3-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-1.9-.2-.5-.4-.8-.8-1.2-.4-.4-.7-.6-1.2-.8-.3-.1-.9-.3-1.9-.3-1.2-.1-1.6-.1-4.7-.1zm0 4.3a5.7 5.7 0 110 11.4 5.7 5.7 0 010-11.4zm0 1.8a3.9 3.9 0 100 7.8 3.9 3.9 0 000-7.8zm5.9-3.3a1.3 1.3 0 110 2.6 1.3 1.3 0 010-2.6z"/></svg>',
+  facebook: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.7h2.6l.4-3h-3v-1.9c0-.9.2-1.5 1.5-1.5h1.6V3.4C15.8 3.2 14.7 3 13.6 3c-2.6 0-4.3 1.5-4.3 4.4v2h-2.6v3h2.6V21z"/></svg>',
+  tiktok: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2h-3v13.6a2.9 2.9 0 11-2.9-2.9c.2 0 .4 0 .6.1V9.6a5.9 5.9 0 106 5.9V8.3a6.6 6.6 0 004.3 1.6V6.8a3.6 3.6 0 01-4-2.3z"/></svg>',
+};
+
+module.exports = { icons };
