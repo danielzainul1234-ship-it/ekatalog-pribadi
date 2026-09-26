@@ -33,6 +33,7 @@ ${s.favicon ? `<link rel="icon" href="${s.favicon}">` : '<link rel="icon" href="
 <link rel="stylesheet" href="/css/style.css">
 ${opts.jsonLd ? `<script type="application/ld+json">${JSON.stringify(opts.jsonLd)}</script>` : ''}
 <style>:root{--primary:${s.primary_color};--primary-dark:${s.primary_color};--secondary:${s.secondary_color};}</style>
+<script src="/js/cart.js"></script>
 </head>`;
 }
 
@@ -150,7 +151,6 @@ function renderScripts(extra = []) {
   return `
 <div id="toast-root"></div>
 <div class="modal-overlay" id="global-modal"><div class="modal-box" id="global-modal-box"></div></div>
-<script src="/js/cart.js"></script>
 <script src="/js/main.js"></script>
 ${extra.map((s) => `<script src="${s}"></script>`).join('\n')}
 </body></html>`;
