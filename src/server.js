@@ -13,7 +13,7 @@ const app = createApp();
 
 // ---- static assets ----
 app.use(app.static('/public', path.join(__dirname, '..', 'public')));
-app.use(app.static('/uploads', path.join(__dirname, '..', 'public', 'uploads')));
+app.use(app.static('/uploads', path.join(__dirname, '..', 'data', 'uploads')));
 app.use(app.static('/css', path.join(__dirname, '..', 'public', 'css')));
 app.use(app.static('/js', path.join(__dirname, '..', 'public', 'js')));
 app.use(app.static('/img', path.join(__dirname, '..', 'public', 'img')));

@@ -11,7 +11,9 @@ try {
   try { sharp = require('sharp'); } catch (e2) { sharp = null; }
 }
 
-const UPLOAD_ROOT = path.join(__dirname, '..', '..', 'public', 'uploads');
+// Stored under data/ (not public/) so a single Railway volume mounted at /app/data
+// persists both the database and uploaded images across redeploys.
+const UPLOAD_ROOT = path.join(__dirname, '..', '..', 'data', 'uploads');
 
 /**
  * Save a base64 data-URI image to disk, optionally resizing/optimizing with sharp.
@@ -47,7 +49,7 @@ async function saveDataUrlImage(dataUrl, subdir, opts = {}) {
 
 function deleteUploadedFile(publicPath) {
   if (!publicPath || !publicPath.startsWith('/uploads/')) return;
-  const full = path.join(__dirname, '..', '..', 'public', publicPath);
+  const full = path.join(UPLOAD_ROOT, publicPath.slice('/uploads/'.length));
   fs.unlink(full, () => {});
 }
 
