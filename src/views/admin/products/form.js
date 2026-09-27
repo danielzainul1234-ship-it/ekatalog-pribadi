@@ -72,8 +72,9 @@ function renderProductForm(req, { product, categories, errors }) {
       </div>
       <div class="form-row-2">
         <div class="form-group">
-          <label>Harga Normal (Rp) *</label>
-          <input type="number" class="form-control" name="price" value="${product ? product.price : ''}" min="0" required>
+          <label>Harga Normal (Rp)</label>
+          <input type="number" class="form-control" name="price" value="${product ? product.price : ''}" min="0" placeholder="Kosongkan jika mengatur harga per ukuran di bawah">
+          <p class="form-hint" style="margin-bottom:0">Untuk produk dengan varian ukuran, boleh dikosongkan asalkan setiap ukuran di bawah sudah diisi harganya. Harga ini juga jadi harga yang tampil di katalog sebelum ukuran dipilih.</p>
         </div>
         <div class="form-group">
           <label>Harga Promo (Rp)</label>

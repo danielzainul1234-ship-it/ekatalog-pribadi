@@ -103,12 +103,21 @@ function parseProductBody(body) {
     });
   }
 
+  // Harga Normal is optional when every size below has its own price: fall back
+  // to the lowest per-size price so the catalog/listing still has a real price
+  // to show before a size is picked, instead of Rp0.
+  let price = parseInt(body.price, 10) || 0;
+  if (hasVariants && !price) {
+    const variantPrices = variants.map((v) => v.price).filter((p) => p && p > 0);
+    if (variantPrices.length) price = Math.min(...variantPrices);
+  }
+
   return {
     name: (body.name || '').trim(),
     sku: (body.sku || '').trim(),
     category_id: body.category_id ? parseInt(body.category_id, 10) : null,
     description: body.description || '',
-    price: parseInt(body.price, 10) || 0,
+    price,
     promo_price: body.promo_price ? parseInt(body.promo_price, 10) : null,
     status: body.status === 'inactive' ? 'inactive' : 'active',
     is_new: body.is_new === 'on' ? 1 : 0,
@@ -141,7 +150,7 @@ router.post('/produk/baru', async (req, res) => {
   const data = parseProductBody(req.body);
   const errors = [];
   if (!data.name) errors.push('Nama produk wajib diisi.');
-  if (!data.price) errors.push('Harga normal wajib diisi.');
+  if (!data.price) errors.push(data.has_variants ? 'Isi Harga Normal, atau isi harga di minimal satu ukuran.' : 'Harga normal wajib diisi.');
   if (data.has_variants && data.variants.length === 0) errors.push('Tambahkan minimal 1 ukuran untuk produk dengan varian.');
 
   if (errors.length) {
@@ -179,7 +188,7 @@ router.post('/produk/:id/edit', async (req, res) => {
   const data = parseProductBody(req.body);
   const errors = [];
   if (!data.name) errors.push('Nama produk wajib diisi.');
-  if (!data.price) errors.push('Harga normal wajib diisi.');
+  if (!data.price) errors.push(data.has_variants ? 'Isi Harga Normal, atau isi harga di minimal satu ukuran.' : 'Harga normal wajib diisi.');
   if (data.has_variants && data.variants.length === 0) errors.push('Tambahkan minimal 1 ukuran untuk produk dengan varian.');
 
   if (errors.length) {
