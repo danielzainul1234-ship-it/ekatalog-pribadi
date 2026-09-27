@@ -45,15 +45,6 @@ function renderHome(req, { categories, newest, bestsellers, promo }) {
   ${productGrid(newest, { emptyText: 'Belum ada produk terbaru.' })}
 </section>`;
 
-  const bestsellerSection = `
-<section class="section container">
-  <div class="section-head">
-    <div><span class="eyebrow">Favorit Pelanggan</span><h2>Produk Terlaris</h2></div>
-    <a href="/produk?sort=bestseller" class="link">Lihat semua ${icons.chevronRight}</a>
-  </div>
-  ${productGrid(bestsellers, { emptyText: 'Belum ada data produk terlaris.' })}
-</section>`;
-
   const promoSection = promo.length ? `
 <section class="section container">
   <div class="promo-section">
@@ -67,7 +58,7 @@ function renderHome(req, { categories, newest, bestsellers, promo }) {
   ${productGrid(promo)}
 </section>` : '';
 
-  const body = `${hero}${catSection}${newestSection}${bestsellerSection}${promoSection}`;
+  const body = `${hero}${catSection}${newestSection}${promoSection}`;
 
   return shopLayout(req, {
     title: null,
